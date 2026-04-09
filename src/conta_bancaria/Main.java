@@ -5,23 +5,30 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		Conta account = new Conta();
-		String choose;
+		String choose, owner;
+		int acNumber;
+		double deposit;
+		Conta account = null;
+
 		System.out.print("Número da conta: ");
-		account.setAccountNumber(input.nextInt());
+		acNumber = input.nextInt();
 		input.nextLine();
 		System.out.print("Nome do Títular da Conta: ");
-		account.setAccountOwner(input.nextLine());
+		owner = input.nextLine();
 
 		do {
 			System.out.print("Tem um deposito inicial?[y/n]: ");
 			choose = input.nextLine().toLowerCase();
 			if (choose.contains("y")) {
 				System.out.print("Digite o Valor do deposito inicial: R$");
-				account.setDeposit(input.nextDouble());
+				double InitialDeposit = input.nextDouble();
 				input.nextLine();
+				account = new Conta(acNumber, owner, InitialDeposit);
+
 			} else if (choose.contains("n")) {
-				System.out.println();
+				System.out.print("");
+				account = new Conta(acNumber, owner);
+
 			} else {
 				System.out.println("Opção inválida!!!");
 			}
@@ -42,6 +49,7 @@ public class Main {
 
 		System.out.println("Dados da Conta Atualizados:");
 		System.out.println(account.toString());
+		input.close();
 
 	}
 

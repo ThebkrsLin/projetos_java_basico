@@ -5,6 +5,17 @@ public class Conta {
 	private String accountOwner;
 	private double deposit;
 
+	public Conta(int accountNumber, String accountOwner) {
+		this.accountNumber = accountNumber;
+		this.accountOwner = accountOwner;
+	}
+
+	public Conta(int accountNumber, String accountOwner, double initialdeposit) {
+		this.accountNumber = accountNumber;
+		this.accountOwner = accountOwner;
+		deposit(initialdeposit);
+	}
+
 	public int getAccountNumber() {
 		return accountNumber;
 	}
@@ -21,11 +32,7 @@ public class Conta {
 		this.accountOwner = accountOwner;
 	}
 
-	public double getDeposit() {
-		return deposit;
-	}
-
-	public void setDeposit(double deposit) {
+	public void deposit(double deposit) {
 		this.deposit = deposit;
 	}
 
