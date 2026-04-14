@@ -7,7 +7,6 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		String choose, owner;
 		int acNumber;
-		double deposit;
 		Conta account = null;
 
 		System.out.print("Número da conta: ");
@@ -38,7 +37,7 @@ public class Main {
 		System.out.println(account.toString());
 
 		System.out.print("Digite o Valor a ser depositado: R$");
-		account.addDeposit(input.nextDouble());
+		account.deposit(input.nextDouble());
 		input.nextLine();
 
 		System.out.println("Dados da conta atualizados: ");
